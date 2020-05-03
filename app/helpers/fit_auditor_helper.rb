@@ -1,0 +1,2 @@
+module FitAuditorHelper
+end
