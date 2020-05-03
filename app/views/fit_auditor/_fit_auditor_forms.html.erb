@@ -1,0 +1,11 @@
+<%= form_with class: "form-group" do |f| %>
+  <%= f.label :old_fitting, "Old Fit:" %>
+  <%= f.text_area :old_fitting, class: "form-control"%>
+  
+  <%= f.label :new_fitting, "New Fit:" %>
+  <%= f.text_area :new_fitting, class: "form-control" %>
+
+  <%= submit_tag("Audit") %>
+<% end %>
+
+

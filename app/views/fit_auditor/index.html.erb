@@ -1,11 +1,1 @@
-<%= form_with do %>
-  <%= label_tag(:old_fitting, "Old Fit:") %>
-  <%= text_area_tag(:old_fitting) %>
-  
-  <%= label_tag(:new_fitting, "New Fit:") %>
-  <%= text_area_tag(:new_fitting) %>
-
-  <%= submit_tag("Audit") %>
-<% end %>
-
-
+<%= render partial: "fit_auditor_forms" %>
