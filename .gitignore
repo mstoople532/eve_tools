@@ -1,7 +1,6 @@
 *.rbc
 capybara-*.html
 .rspec
-.swp
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /db/*.sqlite3-[0-9]*
@@ -11,6 +10,9 @@ capybara-*.html
 *.orig
 rerun.txt
 pickle-email-*.html
+
+*.swp
+*.swo
 
 # Ignore all logfiles and tempfiles.
 /log/*
