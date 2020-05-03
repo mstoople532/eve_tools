@@ -1,4 +1,4 @@
-class FitAuditor
+class FitAuditorService
   attr_reader :old_fitting, :new_fitting
 
   def initialize(old_fitting:, new_fitting:)
