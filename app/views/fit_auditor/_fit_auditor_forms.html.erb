@@ -1,4 +1,4 @@
-<%= form_with class: "form-group" do |f| %>
+<%= form_with model: @fit_auditor, class: "form-group", remote: true do |f| %>
   <div class = "row">
     <div class="col-xl">
       <%= f.label :old_fitting, "Old Fit:" %>
@@ -7,11 +7,11 @@
 
     <div class="col-xl">
       <%= f.label :new_fitting, "New Fit:" %>
-      <%= f.text_area :new_fitting, class: "form-control" %>
+      <%= f.text_area :new_fitting, class: "form-control"%>
     </div>
   </div>
 
-  <%= submit_tag("Audit") %>
+  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
 <% end %>
 
 

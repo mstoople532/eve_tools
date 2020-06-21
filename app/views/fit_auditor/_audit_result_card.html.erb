@@ -1,0 +1,16 @@
+<div class="row">
+  <% @fit_auditor.instance_variables.each do |attribute| %>
+    <div class="col-xl">
+      <div class="card">
+        <div class="card-body">
+        <h5 class="card-title"><%= attribute.to_s.delete("@") %></h5>
+          <p class="card-text">
+            <% @fit_auditor.send(attribute.to_s.delete("@")).each do |mod, count| %>
+              <li> <%="#{mod} x#{count}" %> </li>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -29,7 +29,8 @@ class FitParser
     end
 
     eft_data.reject! { |line| line.empty? }
-    
+    eft_data.reject! { |line| line.include?("[") } 
+
     respond(eft_data)
   end
 

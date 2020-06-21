@@ -37,7 +37,8 @@ class FitComparer
   private
 
   def calculate_to_sell(list)
-    list.select{ |k,v| v < 0 }
+    sell = list.select{ |k,v| v < 0 }
+    sell.transform_values(&:abs) 
   end
 
   def calculate_to_buy(list)
@@ -47,5 +48,4 @@ class FitComparer
   def calculate_to_keep(list)
     list.select{ |k,v| v == 0 }
   end
-
 end
