@@ -13,6 +13,7 @@ pickle-email-*.html
 
 *.swp
 *.swo
+*.DS_Store
 
 # Ignore all logfiles and tempfiles.
 /log/*

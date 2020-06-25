@@ -13,6 +13,23 @@
   /Custom bootstrap variables must be set or imported *before* bootstrap./
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Signika');
 @import "bootstrap";
 @import "./*";
+
+.navbar {
+  padding-top: 0;
+}
+.navbar-brand {
+  padding: 0;
+
+  .brand-name {
+    font-family: 'Signika', sans-serif;
+    font-weight: 600;
+    top: 6px;
+    position: relative;
+    font-size: 32px;
+    letter-spacing: -1.2px;
+  }
+}
 
