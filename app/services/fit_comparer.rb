@@ -5,17 +5,14 @@ class FitComparer
   Response = Struct.new(:sell, :buy, :keep, keyword_init: true)
 
   def initialize(old_fitting:, new_fitting:)
-    @old_fitting = old_fitting
-    @new_fitting = new_fitting
+    @old_fitting = old_fitting.tally
+    @new_fitting = new_fitting.tally
     @difference = Hash.new
   end
 
   def call
-    new_tally = new_fitting.tally
-    old_tally = old_fitting.tally
-
-    compare_sell_and_keep(old_tally, new_tally)
-    compare_buy(old_tally, new_tally)
+    compare_old_fit_to_new(old_fitting, new_fitting)
+    compare_new_fit_to_old(old_fitting, new_fitting)
 
     respond
   end
@@ -30,8 +27,9 @@ class FitComparer
   
   private
 
-  def compare_sell_and_keep(old_tally, new_tally)
+  def compare_old_fit_to_new(old_tally, new_tally)
     old_tally.map do |item, count|
+      #check if the new fitting has the module
       if new_tally.include?(item)
         new_count = new_tally.fetch(item)
         amount_needed = new_count - count
@@ -44,13 +42,14 @@ class FitComparer
     end
   end
 
-  def compare_buy(old_tally, new_tally)
+  def compare_new_fit_to_old(old_tally, new_tally)
     new_tally.filter_map do |item, count|
       unless old_tally.include?(item)
          difference[item] = new_tally.fetch(item)
       end
     end
   end
+
   def calculate_to_sell(list)
     sell = list.select{ |k,v| v < 0 }
     sell.transform_values(&:abs) 
@@ -61,6 +60,7 @@ class FitComparer
   end
 
   def calculate_to_keep(list)
-    list.select{ |k,v| v == 0 }
+    keep = list.select{ |k,v| v == 0 }
+    old_fitting.select{ |k,v| keep.keys.include?(k) }
   end
 end
