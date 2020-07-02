@@ -17,14 +17,20 @@
 @import "bootstrap";
 @import "./*";
 
+.container-fluid {
+  padding: 20px;
+  color: #343A40;
+}
+
 .navbar {
   padding-top: 0;
+  font-family: 'Signika', sans-serif;
 }
+
 .navbar-brand {
   padding: 0;
 
   .brand-name {
-    font-family: 'Signika', sans-serif;
     font-weight: 600;
     top: 6px;
     position: relative;
@@ -33,3 +39,13 @@
   }
 }
 
+.navbar-dark {
+  .navbar-nav {
+    padding-top: 15px;
+    padding-bottom: 0;
+
+    .nav-link {
+      color: white;
+    }
+  }
+}

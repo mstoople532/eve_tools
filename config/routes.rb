@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   resources :fit_auditor, only: [:index]
   post :fit_auditor, to: 'fit_auditor#audit'
+
+  get "/:page" => "static#show"
 end

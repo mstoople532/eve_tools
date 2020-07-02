@@ -11,7 +11,6 @@ class FitParser
   def call
     eft_data = Array.new
     fitting.each_line{ |line| eft_data << line.chomp }
-
     eft_data.map! do |line|
 
       if line.match?(/[x]\d+/)
