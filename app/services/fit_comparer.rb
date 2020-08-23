@@ -60,7 +60,16 @@ class FitComparer
   end
 
   def calculate_to_keep(list)
+    # calculate when module numbers are the same
     keep = list.select{ |k,v| v == 0 }
-    old_fitting.select{ |k,v| keep.keys.include?(k) }
+    keep = old_fitting.select{ |k,v| keep.keys.include?(k) }
+    # calculate when more old than new
+    sell = list.select{ |k,v| v < 0 }
+    sell = new_fitting.select{ |k,v| sell.keys.include?(k) }
+    # calculate when new more than old
+    buy = list.select{ |k,v| v > 0 }
+    buy = old_fitting.select{ |k,v| buy.keys.include?(k) }
+
+    keep.merge!(sell, buy)
   end
 end
